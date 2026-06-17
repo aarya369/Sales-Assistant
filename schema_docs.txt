@@ -1,0 +1,195 @@
+
+Table: categories
+Rows: 8
+
+Columns:
+- category_id (smallint)
+- category_name (character varying)
+- description (text)
+- picture (bytea)
+
+----------------------------------------
+
+Table: customer_customer_demo
+Rows: 0
+
+Columns:
+- customer_id (character varying)
+- customer_type_id (character varying)
+
+----------------------------------------
+
+Table: customer_demographics
+Rows: 0
+
+Columns:
+- customer_type_id (character varying)
+- customer_desc (text)
+
+----------------------------------------
+
+Table: customers
+Rows: 91
+
+Columns:
+- customer_id (character varying)
+- company_name (character varying)
+- contact_name (character varying)
+- contact_title (character varying)
+- address (character varying)
+- city (character varying)
+- region (character varying)
+- postal_code (character varying)
+- country (character varying)
+- phone (character varying)
+- fax (character varying)
+
+Sample values:
+
+country:
+Argentina, Austria, Belgium, Brazil, Canada
+
+----------------------------------------
+
+Table: employee_territories
+Rows: 49
+
+Columns:
+- employee_id (smallint)
+- territory_id (character varying)
+
+----------------------------------------
+
+Table: employees
+Rows: 9
+
+Columns:
+- employee_id (smallint)
+- last_name (character varying)
+- first_name (character varying)
+- title (character varying)
+- title_of_courtesy (character varying)
+- birth_date (date)
+- hire_date (date)
+- address (character varying)
+- city (character varying)
+- region (character varying)
+- postal_code (character varying)
+- country (character varying)
+- home_phone (character varying)
+- extension (character varying)
+- photo (bytea)
+- notes (text)
+- reports_to (smallint)
+- photo_path (character varying)
+
+----------------------------------------
+
+Table: order_details
+Rows: 2155
+
+Columns:
+- order_id (smallint)
+- product_id (smallint)
+- unit_price (real)
+- quantity (smallint)
+- discount (real)
+
+----------------------------------------
+
+Table: orders
+Rows: 830
+
+Columns:
+- order_id (smallint)
+- customer_id (character varying)
+- employee_id (smallint)
+- order_date (date)
+- required_date (date)
+- shipped_date (date)
+- ship_via (smallint)
+- freight (real)
+- ship_name (character varying)
+- ship_address (character varying)
+- ship_city (character varying)
+- ship_region (character varying)
+- ship_postal_code (character varying)
+- ship_country (character varying)
+
+----------------------------------------
+
+Table: products
+Rows: 77
+
+Columns:
+- product_id (smallint)
+- product_name (character varying)
+- supplier_id (smallint)
+- category_id (smallint)
+- quantity_per_unit (character varying)
+- unit_price (real)
+- units_in_stock (smallint)
+- units_on_order (smallint)
+- reorder_level (smallint)
+- discontinued (integer)
+
+----------------------------------------
+
+Table: region
+Rows: 4
+
+Columns:
+- region_id (smallint)
+- region_description (character varying)
+
+----------------------------------------
+
+Table: shippers
+Rows: 6
+
+Columns:
+- shipper_id (smallint)
+- company_name (character varying)
+- phone (character varying)
+
+----------------------------------------
+
+Table: suppliers
+Rows: 29
+
+Columns:
+- supplier_id (smallint)
+- company_name (character varying)
+- contact_name (character varying)
+- contact_title (character varying)
+- address (character varying)
+- city (character varying)
+- region (character varying)
+- postal_code (character varying)
+- country (character varying)
+- phone (character varying)
+- fax (character varying)
+- homepage (text)
+
+----------------------------------------
+
+Table: territories
+Rows: 53
+
+Columns:
+- territory_id (character varying)
+- territory_description (character varying)
+- region_id (smallint)
+
+----------------------------------------
+
+Table: us_states
+Rows: 51
+
+Columns:
+- state_id (smallint)
+- state_name (character varying)
+- state_abbr (character varying)
+- state_region (character varying)
+
+----------------------------------------
