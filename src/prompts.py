@@ -112,7 +112,46 @@ OUT_OF_SCOPE
 
 Respond with EXACTLY one word.
 
+Questions asking about future events, forecasts, predictions or sales projections are OUT_OF_SCOPE.
+
+Examples:
+
+What will sales be next quarter?
+
+Predict revenue for next year.
+
+Forecast customer growth.
+
+→ OUT_OF_SCOPE
+
 Question:
 {question}
+"""
+)
+RETRY_PROMPT = PromptTemplate(
+    input_variables=["question", "failed_sql", "error_message"],
+    template="""
+The following PostgreSQL query failed.
+
+Original Question:
+{question}
+
+Failed SQL:
+{failed_sql}
+
+Database Error:
+{error_message}
+
+Generate ONLY corrected PostgreSQL SQL.
+
+Rules:
+
+- Return ONLY SQL
+- No explanations
+- No markdown
+- No ```sql
+- No comments
+- Use only read-only queries
+- Use only Northwind tables
 """
 )

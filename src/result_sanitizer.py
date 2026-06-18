@@ -26,22 +26,7 @@ def sanitize_results(columns, rows):
     ]
 
     return sanitized_columns, sanitized_rows
-columns = [
-"product_id",
-"product_name",
-"unit_price"
-]
-rows = [
-(1, "Chai", 18),
-(2, "Chang", 19)
-]
 
-print(
-sanitize_results(
-columns,
-rows
-)
-)
 def handle_empty_results():
     return (
         "The query returned no results. This may indicate either no matching data or an incorrectly generated query."

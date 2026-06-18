@@ -12,9 +12,9 @@ import re
 def validate_tables(sql):
     sql_lower = sql.lower()
     found_tables = re.findall(
-        r"(?:from|join)\s+(?:\w+\.)?([a-zA-Z_]+)",
-        sql_lower
-    )
+    r"\b(?:from|join)\s+([a-zA-Z_][a-zA-Z0-9_]*)\b",
+    sql_lower
+)
     for table in found_tables:
         if table not in ALLOWED_TABLES:
             raise ValueError(
@@ -68,3 +68,11 @@ def ensure_limit(sql, default_limit=100):
         sql = sql.rstrip().rstrip(";")
         sql += f"\nLIMIT {default_limit};"
     return sql
+def clean_sql(sql):
+
+    sql = sql.strip()
+
+    sql = sql.replace("```sql", "")
+    sql = sql.replace("```", "")
+
+    return sql.strip()
