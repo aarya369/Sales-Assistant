@@ -8,7 +8,6 @@ def get_connection():
     host="localhost",
     port="5432"
 )
-
     return conn
 
 def get_tables(conn):

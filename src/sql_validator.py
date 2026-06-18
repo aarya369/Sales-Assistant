@@ -29,36 +29,23 @@ def is_select_only(sql):
         sql.startswith("WITH")
     )
 def validate_sql(sql):
-
     sql_upper = sql.strip().upper()
-
     if sql_upper in [
-
         "OUT_OF_SCOPE",
-
         "CLARIFICATION_REQUIRED"
 
     ]:
 
         return True
-
-
     validate_syntax(sql)
 
-
     if not is_select_only(sql):
-
         raise ValueError(
-
             "Only SELECT queries are allowed."
-
         )
 
-
     check_forbidden_keywords(sql)
-
     validate_tables(sql)
-
 
     return True
 import sqlglot
@@ -73,3 +60,11 @@ def validate_syntax(sql):
         raise ValueError(
             "Invalid SQL syntax"
         )
+
+def ensure_limit(sql, default_limit=100):
+
+    sql_upper = sql.upper()
+    if "LIMIT" not in sql_upper:
+        sql = sql.rstrip().rstrip(";")
+        sql += f"\nLIMIT {default_limit};"
+    return sql
