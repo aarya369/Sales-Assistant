@@ -142,3 +142,11 @@
 {"timestamp": "2026-06-19T18:17:26.276933", "level": "INFO", "trace_id": "782a5d15-ffbd-4fe2-b750-6c179f786e24", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 10}}
 {"timestamp": "2026-06-19T18:17:26.278505", "level": "INFO", "trace_id": "782a5d15-ffbd-4fe2-b750-6c179f786e24", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
 {"timestamp": "2026-06-19T18:17:26.278505", "level": "INFO", "trace_id": "782a5d15-ffbd-4fe2-b750-6c179f786e24", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
+{"timestamp": "2026-06-19T18:23:57.501659", "level": "INFO", "trace_id": "f1fe53cd-5e28-4dad-b8df-ed4bde9afa65", "component": "main", "event_type": "input_received", "payload": {"question_length": 5}}
+{"timestamp": "2026-06-19T18:24:19.302914", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "main", "event_type": "input_received", "payload": {"question_length": 78}}
+{"timestamp": "2026-06-19T18:24:19.861370", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "retriever", "event_type": "context_retrieved", "payload": {"tables": ["products", "order_details", "customers", "orders"]}}
+{"timestamp": "2026-06-19T18:24:20.572068", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "sql_generator", "event_type": "sql_generated", "payload": {"sql_length": 296}}
+{"timestamp": "2026-06-19T18:24:20.598628", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
+{"timestamp": "2026-06-19T18:24:20.644415", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 89}}
+{"timestamp": "2026-06-19T18:24:20.644810", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
+{"timestamp": "2026-06-19T18:34:12.372007", "level": "INFO", "trace_id": "0d74ae89-835f-495b-a1b0-1a9a77d4e759", "component": "main", "event_type": "input_received", "payload": {"question_length": 5}}
