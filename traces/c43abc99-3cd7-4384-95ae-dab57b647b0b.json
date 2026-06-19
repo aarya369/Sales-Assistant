@@ -1,0 +1,81 @@
+{
+    "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b",
+    "user_question": "top 5 customers",
+    "retrieved_context": {
+        "tables": [
+            "customers"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: customers\nRows: 91\n\nColumns:\n- customer_id (character varying)\n- company_name (character varying)\n- contact_name (character varying)\n- contact_title (character varying)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- phone (character varying)\n- fax (character varying)\n\nSample values:\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "\nTable: customers\n\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "user_question": "top 5 customers"
+    },
+    "generated_sql": "SELECT customer_id, company_name, contact_name \nFROM customers \nORDER BY company_name \nLIMIT 5",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "customer_id",
+            "company_name",
+            "contact_name"
+        ],
+        "rows": [
+            [
+                "ALFKI",
+                "Alfreds Futterkiste",
+                "Maria Anders"
+            ],
+            [
+                "ANATR",
+                "Ana Trujillo Emparedados y helados",
+                "Ana Trujillo"
+            ],
+            [
+                "ANTON",
+                "Antonio Moreno Taquer\u00eda",
+                "Antonio Moreno"
+            ],
+            [
+                "AROUT",
+                "Around the Horn",
+                "Thomas Hardy"
+            ],
+            [
+                "BSBEV",
+                "B's Beverages",
+                "Victoria Ashworth"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "company_name",
+            "contact_name"
+        ],
+        "rows": [
+            [
+                "Alfreds Futterkiste",
+                "Maria Anders"
+            ],
+            [
+                "Ana Trujillo Emparedados y helados",
+                "Ana Trujillo"
+            ],
+            [
+                "Antonio Moreno Taquer\u00eda",
+                "Antonio Moreno"
+            ],
+            [
+                "Around the Horn",
+                "Thomas Hardy"
+            ],
+            [
+                "B's Beverages",
+                "Victoria Ashworth"
+            ]
+        ]
+    }
+}

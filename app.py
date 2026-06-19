@@ -70,3 +70,79 @@ if question:
                 f"{response['trace_id']}"
             }
         )
+with st.sidebar:
+
+    st.header(
+
+        "Database Overview"
+
+    )
+
+
+    st.markdown(
+
+"""
+### Main Tables
+
+**customers**
+
+Customer information
+
+---
+
+**orders**
+
+Order headers
+
+---
+
+**order_details**
+
+Products inside each order
+
+---
+
+**products**
+
+Product catalog
+
+---
+
+**categories**
+
+Product categories
+
+---
+
+**employees**
+
+Sales employees
+
+"""
+)
+st.header(
+
+    "Example Questions"
+
+)
+
+
+st.markdown(
+
+"""
+
+- Top 5 customers by sales
+
+- Sales by category
+
+- Highest selling product in Germany
+
+- Monthly sales trend
+
+- Employee with highest revenue
+
+- Top suppliers by sales
+
+"""
+
+)

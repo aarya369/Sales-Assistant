@@ -150,3 +150,15 @@
 {"timestamp": "2026-06-19T18:24:20.644415", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 89}}
 {"timestamp": "2026-06-19T18:24:20.644810", "level": "INFO", "trace_id": "59bb25c8-4d56-44fa-92f0-556e6b35a57d", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
 {"timestamp": "2026-06-19T18:34:12.372007", "level": "INFO", "trace_id": "0d74ae89-835f-495b-a1b0-1a9a77d4e759", "component": "main", "event_type": "input_received", "payload": {"question_length": 5}}
+{"timestamp": "2026-06-19T19:15:22.090628", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "main", "event_type": "input_received", "payload": {"question_length": 15}}
+{"timestamp": "2026-06-19T19:15:23.012546", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "retriever", "event_type": "context_retrieved", "payload": {"tables": ["customers"]}}
+{"timestamp": "2026-06-19T19:15:23.466969", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "sql_generator", "event_type": "sql_generated", "payload": {"sql_length": 94}}
+{"timestamp": "2026-06-19T19:15:23.501541", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
+{"timestamp": "2026-06-19T19:15:23.554243", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 5}}
+{"timestamp": "2026-06-19T19:15:23.554721", "level": "INFO", "trace_id": "c43abc99-3cd7-4384-95ae-dab57b647b0b", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
+{"timestamp": "2026-06-19T19:18:19.474853", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "main", "event_type": "input_received", "payload": {"question_length": 17}}
+{"timestamp": "2026-06-19T19:18:19.809803", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "retriever", "event_type": "context_retrieved", "payload": {"tables": ["categories"]}}
+{"timestamp": "2026-06-19T19:18:20.163725", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "sql_generator", "event_type": "sql_generated", "payload": {"sql_length": 251}}
+{"timestamp": "2026-06-19T19:18:20.180970", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
+{"timestamp": "2026-06-19T19:18:20.436869", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 8}}
+{"timestamp": "2026-06-19T19:18:20.437329", "level": "INFO", "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}

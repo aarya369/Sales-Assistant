@@ -1,0 +1,99 @@
+{
+    "trace_id": "a5f76fab-621e-490c-9040-f522182ff31b",
+    "user_question": "sales by category",
+    "retrieved_context": {
+        "tables": [
+            "categories"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\nTable: categories\nRows: 8\n\nColumns:\n- category_id (smallint)\n- category_name (character varying)\n- description (text)\n- picture (bytea)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "sales by category"
+    },
+    "generated_sql": "SELECT c.category_name, ROUND(SUM(od.unit_price * od.quantity), 2) AS sales\nFROM order_details od\nJOIN products p ON od.product_id = p.product_id\nJOIN categories c ON p.category_id = c.category_id\nGROUP BY c.category_name\nORDER BY sales DESC\nLIMIT 100",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "category_name",
+            "sales"
+        ],
+        "rows": [
+            [
+                "Beverages",
+                "286526.95"
+            ],
+            [
+                "Dairy Products",
+                "251330.50"
+            ],
+            [
+                "Meat/Poultry",
+                "178188.80"
+            ],
+            [
+                "Confections",
+                "177099.10"
+            ],
+            [
+                "Seafood",
+                "141623.09"
+            ],
+            [
+                "Condiments",
+                "113694.75"
+            ],
+            [
+                "Produce",
+                "105268.60"
+            ],
+            [
+                "Grains/Cereals",
+                "100726.80"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "category_name",
+            "sales"
+        ],
+        "rows": [
+            [
+                "Beverages",
+                "286526.95"
+            ],
+            [
+                "Dairy Products",
+                "251330.50"
+            ],
+            [
+                "Meat/Poultry",
+                "178188.80"
+            ],
+            [
+                "Confections",
+                "177099.10"
+            ],
+            [
+                "Seafood",
+                "141623.09"
+            ],
+            [
+                "Condiments",
+                "113694.75"
+            ],
+            [
+                "Produce",
+                "105268.60"
+            ],
+            [
+                "Grains/Cereals",
+                "100726.80"
+            ]
+        ]
+    }
+}
