@@ -15,3 +15,4 @@ def validate_question(question):
                 f"Operation '{keyword}' is not allowed. Only read-only queries are supported."
             )
     return True
+    

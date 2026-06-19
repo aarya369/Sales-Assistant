@@ -1,0 +1,37 @@
+{
+    "trace_id": "fa323038-b43d-41ee-a6fb-08b03d4e1bd8",
+    "user_question": "what was revenue in 1997",
+    "retrieved_context": {
+        "tables": []
+    },
+    "llm_prompt": {
+        "schema_context": "",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "what was revenue in 1997"
+    },
+    "generated_sql": "SELECT SUM(unit_price * quantity) AS revenue \nFROM order_details \nJOIN orders ON order_details.order_id = orders.order_id \nWHERE EXTRACT(YEAR FROM orders.order_date) = 1997 \nLIMIT 100",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "revenue"
+        ],
+        "rows": [
+            [
+                658388.7494869232
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "revenue"
+        ],
+        "rows": [
+            [
+                658388.7494869232
+            ]
+        ]
+    }
+}

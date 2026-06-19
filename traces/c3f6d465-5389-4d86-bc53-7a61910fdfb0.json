@@ -1,0 +1,10 @@
+{
+    "trace_id": "c3f6d465-5389-4d86-bc53-7a61910fdfb0",
+    "user_question": "argentina",
+    "retrieved_context": null,
+    "llm_prompt": null,
+    "generated_sql": null,
+    "guardrail": null,
+    "db_result": null,
+    "final_response": null
+}

@@ -1,5 +1,5 @@
 import psycopg2
-from sql_validator import clean_sql
+from src.sql_validator import clean_sql
 def get_connection():
     conn = psycopg2.connect(
         dbname="northwind",
@@ -60,7 +60,7 @@ def execute_with_retry(question, sql, retry_chain, max_retries=2):
 
             retries += 1
 
-from result_sanitizer import sanitize_results, handle_empty_results
+from src.result_sanitizer import sanitize_results, handle_empty_results
 if __name__ == "__main__":
 
     sql = """

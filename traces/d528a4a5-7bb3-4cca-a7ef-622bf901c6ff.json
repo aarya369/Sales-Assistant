@@ -1,0 +1,76 @@
+{
+    "trace_id": "d528a4a5-7bb3-4cca-a7ef-622bf901c6ff",
+    "user_question": "show top 5 customers with highest order value",
+    "retrieved_context": {
+        "tables": [
+            "customers",
+            "orders"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: customers\nRows: 91\n\nColumns:\n- customer_id (character varying)\n- company_name (character varying)\n- contact_name (character varying)\n- contact_title (character varying)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- phone (character varying)\n- fax (character varying)\n\nSample values:\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n\n\nTable: orders\nRows: 830\n\nColumns:\n- order_id (smallint)\n- customer_id (character varying)\n- employee_id (smallint)\n- order_date (date)\n- required_date (date)\n- shipped_date (date)\n- ship_via (smallint)\n- freight (real)\n- ship_name (character varying)\n- ship_address (character varying)\n- ship_city (character varying)\n- ship_region (character varying)\n- ship_postal_code (character varying)\n- ship_country (character varying)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "\nTable: customers\n\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "user_question": "show top 5 customers with highest order value"
+    },
+    "generated_sql": "SELECT c.company_name, SUM(o.freight) AS total_order_value\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nGROUP BY c.company_name\nORDER BY total_order_value DESC\nLIMIT 5",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "company_name",
+            "total_order_value"
+        ],
+        "rows": [
+            [
+                "Save-a-lot Markets",
+                6683.7007
+            ],
+            [
+                "Ernst Handel",
+                6205.39
+            ],
+            [
+                "QUICK-Stop",
+                5605.6304
+            ],
+            [
+                "Hungry Owl All-Night Grocers",
+                2755.24
+            ],
+            [
+                "Rattlesnake Canyon Grocery",
+                2134.2102
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "company_name",
+            "total_order_value"
+        ],
+        "rows": [
+            [
+                "Save-a-lot Markets",
+                6683.7007
+            ],
+            [
+                "Ernst Handel",
+                6205.39
+            ],
+            [
+                "QUICK-Stop",
+                5605.6304
+            ],
+            [
+                "Hungry Owl All-Night Grocers",
+                2755.24
+            ],
+            [
+                "Rattlesnake Canyon Grocery",
+                2134.2102
+            ]
+        ]
+    }
+}

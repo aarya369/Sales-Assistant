@@ -1,0 +1,59 @@
+{
+    "trace_id": "f70d493a-372c-4a21-b8b2-6b1a4202076e",
+    "user_question": "highest 3 sales by category",
+    "retrieved_context": {
+        "tables": [
+            "categories"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\nTable: categories\nRows: 8\n\nColumns:\n- category_id (smallint)\n- category_name (character varying)\n- description (text)\n- picture (bytea)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "highest 3 sales by category"
+    },
+    "generated_sql": "SELECT c.category_name, SUM(od.unit_price * od.quantity) AS total_sales\nFROM order_details od\nJOIN products p ON od.product_id = p.product_id\nJOIN categories c ON p.category_id = c.category_id\nGROUP BY c.category_name\nORDER BY total_sales DESC\nLIMIT 3",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "category_name",
+            "total_sales"
+        ],
+        "rows": [
+            [
+                "Beverages",
+                286526.95009565353
+            ],
+            [
+                "Dairy Products",
+                251330.4997959137
+            ],
+            [
+                "Meat/Poultry",
+                178188.80098581314
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "category_name",
+            "total_sales"
+        ],
+        "rows": [
+            [
+                "Beverages",
+                286526.95009565353
+            ],
+            [
+                "Dairy Products",
+                251330.4997959137
+            ],
+            [
+                "Meat/Poultry",
+                178188.80098581314
+            ]
+        ]
+    }
+}

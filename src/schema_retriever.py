@@ -25,11 +25,14 @@ TABLE_KEYWORDS = {
     "employees": [
         "employee",
         "employees",
-        "salesperson"
+        "salesperson",
+        "person"
     ],
     "categories": [
         "category",
-        "categories"
+        "categories",
+        "genre",
+        "section"
     ],
     "suppliers": [
         "supplier",
@@ -54,18 +57,21 @@ TABLE_DEPENDENCIES = {
 
 def add_dependencies(tables):
     expanded = set(tables)
-    for table in tables:
-        if table in TABLE_DEPENDENCIES:
-            expanded.update(
-                TABLE_DEPENDENCIES[table]
-            )
+    changed = True
+    while changed:
+        changed = False
+        for table in list(expanded):
+            if table in TABLE_DEPENDENCIES:
+                for dep in TABLE_DEPENDENCIES[table]:
+                    if dep not in expanded:
+                        expanded.add(dep)
+                        changed = True
     return list(expanded)
 
 def get_schema_context(
         filepath,
         relevant_tables
 ):
-
     tables = load_schema_docs(filepath)
     context = ""
     for table_text in tables:

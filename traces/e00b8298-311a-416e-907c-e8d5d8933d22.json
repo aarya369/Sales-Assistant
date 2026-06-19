@@ -1,0 +1,25 @@
+{
+    "trace_id": "e00b8298-311a-416e-907c-e8d5d8933d22",
+    "user_question": "show 5 products",
+    "retrieved_context": {
+        "tables": [
+            "products",
+            "customers",
+            "orders",
+            "order_details"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: customers\nRows: 91\n\nColumns:\n- customer_id (character varying)\n- company_name (character varying)\n- contact_name (character varying)\n- contact_title (character varying)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- phone (character varying)\n- fax (character varying)\n\nSample values:\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n\n\nTable: order_details\nRows: 2155\n\nColumns:\n- order_id (smallint)\n- product_id (smallint)\n- unit_price (real)\n- quantity (smallint)\n- discount (real)\n\n\n\n\nTable: orders\nRows: 830\n\nColumns:\n- order_id (smallint)\n- customer_id (character varying)\n- employee_id (smallint)\n- order_date (date)\n- required_date (date)\n- shipped_date (date)\n- ship_via (smallint)\n- freight (real)\n- ship_name (character varying)\n- ship_address (character varying)\n- ship_city (character varying)\n- ship_region (character varying)\n- ship_postal_code (character varying)\n- ship_country (character varying)\n\n\n\n\nTable: products\nRows: 77\n\nColumns:\n- product_id (smallint)\n- product_name (character varying)\n- supplier_id (smallint)\n- category_id (smallint)\n- quantity_per_unit (character varying)\n- unit_price (real)\n- units_in_stock (smallint)\n- units_on_order (smallint)\n- reorder_level (smallint)\n- discontinued (integer)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "\nTable: customers\n\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "user_question": "show 5 products"
+    },
+    "generated_sql": "SELECT product_name FROM products LIMIT 5",
+    "guardrail": {
+        "status": "blocked",
+        "reason": "name 'validation_history' is not defined"
+    },
+    "db_result": null,
+    "final_response": null
+}

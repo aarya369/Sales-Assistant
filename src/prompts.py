@@ -33,11 +33,13 @@ If no limit is specified, add LIMIT 100.
 Return ONLY SQL.
 No explanations.
 No markdown.
+When returning monetary values such as revenue,
+sales, order value, or profit,
+always round to 2 decimal places using ROUND(...,2).
 If the question is ambiguous,
-
 respond: CLARIFICATION_REQUIRED
-If the question cannot be answered using the provided schema,
 
+If the question cannot be answered using the provided schema,
 respond exactly: OUT_OF_SCOPE
 
 Schema:

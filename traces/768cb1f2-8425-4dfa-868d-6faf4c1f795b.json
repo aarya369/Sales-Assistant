@@ -1,0 +1,10 @@
+{
+    "trace_id": "768cb1f2-8425-4dfa-868d-6faf4c1f795b",
+    "user_question": "hello",
+    "retrieved_context": null,
+    "llm_prompt": null,
+    "generated_sql": null,
+    "guardrail": null,
+    "db_result": null,
+    "final_response": null
+}

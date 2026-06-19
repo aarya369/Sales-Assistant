@@ -1,0 +1,116 @@
+{
+    "trace_id": "782a5d15-ffbd-4fe2-b750-6c179f786e24",
+    "user_question": "show me top 10 countries with their highest total_order value",
+    "retrieved_context": {
+        "tables": [
+            "customers",
+            "orders"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: customers\nRows: 91\n\nColumns:\n- customer_id (character varying)\n- company_name (character varying)\n- contact_name (character varying)\n- contact_title (character varying)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- phone (character varying)\n- fax (character varying)\n\nSample values:\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n\n\nTable: orders\nRows: 830\n\nColumns:\n- order_id (smallint)\n- customer_id (character varying)\n- employee_id (smallint)\n- order_date (date)\n- required_date (date)\n- shipped_date (date)\n- ship_via (smallint)\n- freight (real)\n- ship_name (character varying)\n- ship_address (character varying)\n- ship_city (character varying)\n- ship_region (character varying)\n- ship_postal_code (character varying)\n- ship_country (character varying)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "\nTable: customers\n\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "user_question": "show me top 10 countries with their highest total_order value"
+    },
+    "generated_sql": "SELECT T1.country, ROUND(SUM(T2.freight),2) AS total_order_value\nFROM customers AS T1\nJOIN orders AS T2\nON T1.customer_id = T2.customer_id\nGROUP BY T1.country\nORDER BY total_order_value DESC\nLIMIT 10",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "country",
+            "total_order_value"
+        ],
+        "rows": [
+            [
+                "USA",
+                "13771.30"
+            ],
+            [
+                "Germany",
+                "11283.30"
+            ],
+            [
+                "Austria",
+                "7391.50"
+            ],
+            [
+                "Brazil",
+                "4880.19"
+            ],
+            [
+                "France",
+                "4237.84"
+            ],
+            [
+                "Sweden",
+                "3237.60"
+            ],
+            [
+                "UK",
+                "2954.27"
+            ],
+            [
+                "Ireland",
+                "2755.24"
+            ],
+            [
+                "Venezuela",
+                "2735.18"
+            ],
+            [
+                "Canada",
+                "2198.09"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "country",
+            "total_order_value"
+        ],
+        "rows": [
+            [
+                "USA",
+                "13771.30"
+            ],
+            [
+                "Germany",
+                "11283.30"
+            ],
+            [
+                "Austria",
+                "7391.50"
+            ],
+            [
+                "Brazil",
+                "4880.19"
+            ],
+            [
+                "France",
+                "4237.84"
+            ],
+            [
+                "Sweden",
+                "3237.60"
+            ],
+            [
+                "UK",
+                "2954.27"
+            ],
+            [
+                "Ireland",
+                "2755.24"
+            ],
+            [
+                "Venezuela",
+                "2735.18"
+            ],
+            [
+                "Canada",
+                "2198.09"
+            ]
+        ]
+    }
+}

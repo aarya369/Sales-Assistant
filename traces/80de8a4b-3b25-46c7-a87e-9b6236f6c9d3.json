@@ -1,0 +1,61 @@
+{
+    "trace_id": "80de8a4b-3b25-46c7-a87e-9b6236f6c9d3",
+    "user_question": "show 5 countries",
+    "retrieved_context": {
+        "tables": []
+    },
+    "llm_prompt": {
+        "schema_context": "",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "show 5 countries"
+    },
+    "generated_sql": "SELECT country FROM customers LIMIT 5",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Germany"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Sweden"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Germany"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Sweden"
+            ]
+        ]
+    }
+}

@@ -1,4 +1,4 @@
-from security_judge import llm_security_check, off_topic_check
+from src.security_judge import llm_security_check, off_topic_check
 import re
 PROMPT_INJECTION_PATTERNS = [
     "ignore previous instructions",

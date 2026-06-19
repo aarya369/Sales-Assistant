@@ -1,0 +1,91 @@
+{
+    "trace_id": "56822e97-24c2-4854-aa8c-95166b7eab86",
+    "user_question": "show 10 countries",
+    "retrieved_context": {
+        "tables": []
+    },
+    "llm_prompt": {
+        "schema_context": "",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "show 10 countries"
+    },
+    "generated_sql": "SELECT country FROM customers LIMIT 10",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Germany"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Sweden"
+            ],
+            [
+                "Germany"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Spain"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Canada"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Germany"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Sweden"
+            ],
+            [
+                "Germany"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Spain"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Canada"
+            ]
+        ]
+    }
+}

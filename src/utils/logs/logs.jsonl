@@ -1,0 +1,2 @@
+{"timestamp": "2026-06-19T08:21:01.803442", "trace_id": "123", "component": "test", "event_type": "warning_test", "payload": {"msg": "hello"}}
+{"timestamp": "2026-06-19T09:14:20.850258", "trace_id": "123", "component": "test", "event_type": "warning_test", "payload": {"msg": "hello"}}

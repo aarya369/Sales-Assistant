@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.output_parsers import StrOutputParser
-from prompts import SECURITY_PROMPT, OFFTOPIC_PROMPT
+from src.prompts import SECURITY_PROMPT, OFFTOPIC_PROMPT
 load_dotenv()
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
@@ -15,8 +15,7 @@ security_chain = (
 def llm_security_check(question):
     response = security_chain.invoke(
         {
-            "question":
-            question
+            "question": question
         }
     )
     response = response.strip().upper()

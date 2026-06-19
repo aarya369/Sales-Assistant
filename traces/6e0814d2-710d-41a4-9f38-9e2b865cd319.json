@@ -1,0 +1,10 @@
+{
+    "trace_id": "6e0814d2-710d-41a4-9f38-9e2b865cd319",
+    "user_question": "what will sales be next quarter",
+    "retrieved_context": null,
+    "llm_prompt": null,
+    "generated_sql": null,
+    "guardrail": null,
+    "db_result": null,
+    "final_response": null
+}

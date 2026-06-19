@@ -71,7 +71,6 @@ def ensure_limit(sql, default_limit=100):
 def clean_sql(sql):
 
     sql = sql.strip()
-
     sql = sql.replace("```sql", "")
     sql = sql.replace("```", "")
 

@@ -1,4 +1,4 @@
-from schema_retriever import load_schema_docs
+from src.schema_retriever import load_schema_docs
 def get_lov_context(
         filepath,
         relevant_tables
@@ -20,27 +20,12 @@ def get_lov_context(
                     lov_context += "\n"
     return lov_context
 LOV_KEYWORDS = {
-    "country":
-    [
-        "country",
-        "countries"
-    ],
-    "city":
-    [
-        "city",
-        "cities"
-    ],
-    "region":
-    [
-        "region"
-    ],
-    "category":
-    [
-        "category",
-        "categories"
-    ]
-
+    "country":[ "country","countries"],
+    "city":["city", "cities"],
+    "region":["region", "regions"],
+    "category":["category","categories"]
 }
+
 def is_relevant_lov(
         column,
         question
