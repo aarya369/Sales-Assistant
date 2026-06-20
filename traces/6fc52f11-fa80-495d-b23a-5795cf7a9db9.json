@@ -1,0 +1,117 @@
+{
+    "trace_id": "6fc52f11-fa80-495d-b23a-5795cf7a9db9",
+    "user_question": "show all categories",
+    "retrieved_context": {
+        "tables": [
+            "categories"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\nTable: categories\nRows: 8\n\nColumns:\n- category_id (smallint)\n- category_name (character varying)\n- description (text)\n- picture (bytea)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "show all categories"
+    },
+    "generated_sql": "SELECT * FROM categories LIMIT 100;",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "category_id",
+            "category_name",
+            "description",
+            "picture"
+        ],
+        "rows": [
+            [
+                1,
+                "Beverages",
+                "Soft drinks, coffees, teas, beers, and ales",
+                "<memory at 0x7e989c7e8a00>"
+            ],
+            [
+                2,
+                "Condiments",
+                "Sweet and savory sauces, relishes, spreads, and seasonings",
+                "<memory at 0x7e989c7e8c40>"
+            ],
+            [
+                3,
+                "Confections",
+                "Desserts, candies, and sweet breads",
+                "<memory at 0x7e989c7e87c0>"
+            ],
+            [
+                4,
+                "Dairy Products",
+                "Cheeses",
+                "<memory at 0x7e989c7e8880>"
+            ],
+            [
+                5,
+                "Grains/Cereals",
+                "Breads, crackers, pasta, and cereal",
+                "<memory at 0x7e989c7e8b80>"
+            ],
+            [
+                6,
+                "Meat/Poultry",
+                "Prepared meats",
+                "<memory at 0x7e989c7e8580>"
+            ],
+            [
+                7,
+                "Produce",
+                "Dried fruit and bean curd",
+                "<memory at 0x7e989c7e8400>"
+            ],
+            [
+                8,
+                "Seafood",
+                "Seaweed and fish",
+                "<memory at 0x7e989c7e8d00>"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "category_name",
+            "description"
+        ],
+        "rows": [
+            [
+                "Beverages",
+                "Soft drinks, coffees, teas, beers, and ales"
+            ],
+            [
+                "Condiments",
+                "Sweet and savory sauces, relishes, spreads, and seasonings"
+            ],
+            [
+                "Confections",
+                "Desserts, candies, and sweet breads"
+            ],
+            [
+                "Dairy Products",
+                "Cheeses"
+            ],
+            [
+                "Grains/Cereals",
+                "Breads, crackers, pasta, and cereal"
+            ],
+            [
+                "Meat/Poultry",
+                "Prepared meats"
+            ],
+            [
+                "Produce",
+                "Dried fruit and bean curd"
+            ],
+            [
+                "Seafood",
+                "Seaweed and fish"
+            ]
+        ]
+    }
+}

@@ -1,0 +1,177 @@
+{
+    "trace_id": "b585bc12-d7e8-4633-ae9c-f2cdb9d2a0a3",
+    "user_question": "show 5 customers",
+    "retrieved_context": {
+        "tables": [
+            "customers"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: customers\nRows: 91\n\nColumns:\n- customer_id (character varying)\n- company_name (character varying)\n- contact_name (character varying)\n- contact_title (character varying)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- phone (character varying)\n- fax (character varying)\n\nSample values:\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "\nTable: customers\n\n\ncountry:\nArgentina, Austria, Belgium, Brazil, Canada\n\n\n",
+        "user_question": "show 5 customers"
+    },
+    "generated_sql": "SELECT * FROM customers LIMIT 5",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "customer_id",
+            "company_name",
+            "contact_name",
+            "contact_title",
+            "address",
+            "city",
+            "region",
+            "postal_code",
+            "country",
+            "phone",
+            "fax"
+        ],
+        "rows": [
+            [
+                "ALFKI",
+                "Alfreds Futterkiste",
+                "Maria Anders",
+                "Sales Representative",
+                "Obere Str. 57",
+                "Berlin",
+                null,
+                "12209",
+                "Germany",
+                "030-0074321",
+                "030-0076545"
+            ],
+            [
+                "ANATR",
+                "Ana Trujillo Emparedados y helados",
+                "Ana Trujillo",
+                "Owner",
+                "Avda. de la Constituci\u00f3n 2222",
+                "M\u00e9xico D.F.",
+                null,
+                "05021",
+                "Mexico",
+                "(5) 555-4729",
+                "(5) 555-3745"
+            ],
+            [
+                "ANTON",
+                "Antonio Moreno Taquer\u00eda",
+                "Antonio Moreno",
+                "Owner",
+                "Mataderos  2312",
+                "M\u00e9xico D.F.",
+                null,
+                "05023",
+                "Mexico",
+                "(5) 555-3932",
+                null
+            ],
+            [
+                "AROUT",
+                "Around the Horn",
+                "Thomas Hardy",
+                "Sales Representative",
+                "120 Hanover Sq.",
+                "London",
+                null,
+                "WA1 1DP",
+                "UK",
+                "(171) 555-7788",
+                "(171) 555-6750"
+            ],
+            [
+                "BERGS",
+                "Berglunds snabbk\u00f6p",
+                "Christina Berglund",
+                "Order Administrator",
+                "Berguvsv\u00e4gen  8",
+                "Lule\u00e5",
+                null,
+                "S-958 22",
+                "Sweden",
+                "0921-12 34 65",
+                "0921-12 34 67"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "company_name",
+            "contact_name",
+            "contact_title",
+            "address",
+            "city",
+            "region",
+            "postal_code",
+            "country",
+            "phone",
+            "fax"
+        ],
+        "rows": [
+            [
+                "Alfreds Futterkiste",
+                "Maria Anders",
+                "Sales Representative",
+                "Obere Str. 57",
+                "Berlin",
+                null,
+                "12209",
+                "Germany",
+                "030-0074321",
+                "030-0076545"
+            ],
+            [
+                "Ana Trujillo Emparedados y helados",
+                "Ana Trujillo",
+                "Owner",
+                "Avda. de la Constituci\u00f3n 2222",
+                "M\u00e9xico D.F.",
+                null,
+                "05021",
+                "Mexico",
+                "(5) 555-4729",
+                "(5) 555-3745"
+            ],
+            [
+                "Antonio Moreno Taquer\u00eda",
+                "Antonio Moreno",
+                "Owner",
+                "Mataderos  2312",
+                "M\u00e9xico D.F.",
+                null,
+                "05023",
+                "Mexico",
+                "(5) 555-3932",
+                null
+            ],
+            [
+                "Around the Horn",
+                "Thomas Hardy",
+                "Sales Representative",
+                "120 Hanover Sq.",
+                "London",
+                null,
+                "WA1 1DP",
+                "UK",
+                "(171) 555-7788",
+                "(171) 555-6750"
+            ],
+            [
+                "Berglunds snabbk\u00f6p",
+                "Christina Berglund",
+                "Order Administrator",
+                "Berguvsv\u00e4gen  8",
+                "Lule\u00e5",
+                null,
+                "S-958 22",
+                "Sweden",
+                "0921-12 34 65",
+                "0921-12 34 67"
+            ]
+        ]
+    }
+}

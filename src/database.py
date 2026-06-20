@@ -1,13 +1,15 @@
 import psycopg2
 from src.sql_validator import clean_sql
+import sqlite3
+
 def get_connection():
-    conn = psycopg2.connect(
-        dbname="northwind",
-        user="postgres",
-        password="postgres",
-        host="localhost",
-        port="5432"
+
+    conn = sqlite3.connect(
+
+        "northwind.db"
+
     )
+
     return conn
 
 def execute_sql(sql):

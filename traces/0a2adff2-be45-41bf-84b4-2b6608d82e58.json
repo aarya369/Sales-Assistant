@@ -1,0 +1,181 @@
+{
+    "trace_id": "0a2adff2-be45-41bf-84b4-2b6608d82e58",
+    "user_question": "show all countries",
+    "retrieved_context": {
+        "tables": []
+    },
+    "llm_prompt": {
+        "schema_context": "",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "show all countries"
+    },
+    "generated_sql": "SELECT country \nFROM customers \nUNION \nSELECT country \nFROM employees \nUNION \nSELECT country \nFROM suppliers \nLIMIT 100",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Venezuela"
+            ],
+            [
+                "Sweden"
+            ],
+            [
+                "Ireland"
+            ],
+            [
+                "Singapore"
+            ],
+            [
+                "Finland"
+            ],
+            [
+                "Portugal"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Netherlands"
+            ],
+            [
+                "Australia"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Spain"
+            ],
+            [
+                "Belgium"
+            ],
+            [
+                "Italy"
+            ],
+            [
+                "USA"
+            ],
+            [
+                "Germany"
+            ],
+            [
+                "Canada"
+            ],
+            [
+                "Argentina"
+            ],
+            [
+                "Japan"
+            ],
+            [
+                "Denmark"
+            ],
+            [
+                "Switzerland"
+            ],
+            [
+                "Norway"
+            ],
+            [
+                "Brazil"
+            ],
+            [
+                "Austria"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Poland"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "country"
+        ],
+        "rows": [
+            [
+                "Venezuela"
+            ],
+            [
+                "Sweden"
+            ],
+            [
+                "Ireland"
+            ],
+            [
+                "Singapore"
+            ],
+            [
+                "Finland"
+            ],
+            [
+                "Portugal"
+            ],
+            [
+                "France"
+            ],
+            [
+                "Netherlands"
+            ],
+            [
+                "Australia"
+            ],
+            [
+                "UK"
+            ],
+            [
+                "Spain"
+            ],
+            [
+                "Belgium"
+            ],
+            [
+                "Italy"
+            ],
+            [
+                "USA"
+            ],
+            [
+                "Germany"
+            ],
+            [
+                "Canada"
+            ],
+            [
+                "Argentina"
+            ],
+            [
+                "Japan"
+            ],
+            [
+                "Denmark"
+            ],
+            [
+                "Switzerland"
+            ],
+            [
+                "Norway"
+            ],
+            [
+                "Brazil"
+            ],
+            [
+                "Austria"
+            ],
+            [
+                "Mexico"
+            ],
+            [
+                "Poland"
+            ]
+        ]
+    }
+}
