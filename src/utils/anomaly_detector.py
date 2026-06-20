@@ -230,7 +230,7 @@ def record_user_query(
     )
 
 
-    if query_count > 2:
+    if query_count > 20:
 
         logger.critical(
 
