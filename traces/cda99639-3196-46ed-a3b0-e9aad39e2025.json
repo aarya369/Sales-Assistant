@@ -1,0 +1,49 @@
+{
+    "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025",
+    "user_question": "employee with highest revenue",
+    "retrieved_context": {
+        "tables": [
+            "employees"
+        ]
+    },
+    "llm_prompt": {
+        "schema_context": "\n\nTable: employees\nRows: 9\n\nColumns:\n- employee_id (smallint)\n- last_name (character varying)\n- first_name (character varying)\n- title (character varying)\n- title_of_courtesy (character varying)\n- birth_date (date)\n- hire_date (date)\n- address (character varying)\n- city (character varying)\n- region (character varying)\n- postal_code (character varying)\n- country (character varying)\n- home_phone (character varying)\n- extension (character varying)\n- photo (bytea)\n- notes (text)\n- reports_to (smallint)\n- photo_path (character varying)\n\n\n",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "employee with highest revenue"
+    },
+    "generated_sql": "SELECT e.employee_id, e.last_name, e.first_name, ROUND(SUM(od.unit_price * od.quantity * (1 - od.discount)), 2) AS revenue\nFROM employees e\nJOIN orders o ON e.employee_id = o.employee_id\nJOIN order_details od ON o.order_id = od.order_id\nGROUP BY e.employee_id, e.last_name, e.first_name\nORDER BY revenue DESC\nLIMIT 1",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "employee_id",
+            "last_name",
+            "first_name",
+            "revenue"
+        ],
+        "rows": [
+            [
+                4,
+                "Peacock",
+                "Margaret",
+                "232890.85"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "last_name",
+            "first_name",
+            "revenue"
+        ],
+        "rows": [
+            [
+                "Peacock",
+                "Margaret",
+                "232890.85"
+            ]
+        ]
+    }
+}

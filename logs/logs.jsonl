@@ -232,3 +232,15 @@
 {"timestamp": "2026-06-23T11:24:01.048881", "level": "INFO", "trace_id": "31a9ca17-8569-4c9e-8b3f-84a4849dc435", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
 {"timestamp": "2026-06-23T11:24:06.881775", "level": "INFO", "trace_id": "31a9ca17-8569-4c9e-8b3f-84a4849dc435", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 8}}
 {"timestamp": "2026-06-23T11:24:06.886290", "level": "INFO", "trace_id": "31a9ca17-8569-4c9e-8b3f-84a4849dc435", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
+{"timestamp": "2026-06-23T21:44:51.413072", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "main", "event_type": "input_received", "payload": {"question_length": 19}}
+{"timestamp": "2026-06-23T21:44:50.338264", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "retriever", "event_type": "context_retrieved", "payload": {"tables": []}}
+{"timestamp": "2026-06-23T21:44:51.070585", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "sql_generator", "event_type": "sql_generated", "payload": {"sql_length": 419}}
+{"timestamp": "2026-06-23T21:44:51.206795", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
+{"timestamp": "2026-06-23T21:45:02.125605", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 23}}
+{"timestamp": "2026-06-23T21:45:02.128102", "level": "INFO", "trace_id": "08ba9afe-e455-4921-bd22-bcf757e36d2f", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
+{"timestamp": "2026-06-23T21:45:20.443453", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "main", "event_type": "input_received", "payload": {"question_length": 29}}
+{"timestamp": "2026-06-23T21:45:21.434779", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "retriever", "event_type": "context_retrieved", "payload": {"tables": ["employees"]}}
+{"timestamp": "2026-06-23T21:45:22.634925", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "sql_generator", "event_type": "sql_generated", "payload": {"sql_length": 316}}
+{"timestamp": "2026-06-23T21:45:22.668872", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "guardrail", "event_type": "guardrail_passed", "payload": {}}
+{"timestamp": "2026-06-23T21:45:29.847075", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "database", "event_type": "query_executed", "payload": {"rows_returned": 1}}
+{"timestamp": "2026-06-23T21:45:29.849962", "level": "INFO", "trace_id": "cda99639-3196-46ed-a3b0-e9aad39e2025", "component": "main", "event_type": "response_returned", "payload": {"response_type": "table"}}
