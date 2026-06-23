@@ -183,35 +183,12 @@ with st.sidebar:
 | **us_states** | US states information |
         """
         )
-
-
-    # Key relationships
-
     
-with st.expander(
-    "View ER Diagram",
-    expanded=False
-):
-
-    st.image(
-
-        "schema.png",
-
-        caption="Northwind Database ER Diagram",
-
-        width="stretch"
-
-    )
-
-
-st.divider()
-
-
-st.header(
-    "💡 Example Questions"
-)
-
-st.markdown(
+    with st.expander(
+        "💡Example Questions",
+        expanded = False
+        ):
+            st.markdown(
 """
 -Top 5 customers by sales
 
@@ -232,3 +209,23 @@ st.markdown(
 -Average order value by country
 """
 )
+
+
+    # Key relationships
+
+    
+with st.expander(
+    "View ER Diagram",
+    expanded=False
+):
+
+    st.image(
+
+        "schema.png",
+
+        caption="Northwind Database ER Diagram",
+
+        width="stretch"
+
+    )
+
