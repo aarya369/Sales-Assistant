@@ -41,6 +41,38 @@ respond: CLARIFICATION_REQUIRED
 
 If the question cannot be answered using the provided schema,
 respond exactly: OUT_OF_SCOPE
+IMPORTANT RULES:
+
+1. Use ONLY the tables listed in the schema.
+
+2. There is NO table named:
+- countries
+- country
+- sales
+
+3. Country information is stored in:
+- customers.country
+- suppliers.country
+- orders.ship_country
+
+4. If the user asks:
+- "top countries by sales"
+- "sales by country"
+- "which country has highest sales"
+
+then use:
+
+customers.country
+
+or
+
+orders.ship_country
+
+Never invent a table named countries.
+
+5. If the user asks about sales amount, compute it as:
+
+SUM(order_details.unit_price * order_details.quantity * (1 - order_details.discount))
 
 Schema:
 {schema_context}
