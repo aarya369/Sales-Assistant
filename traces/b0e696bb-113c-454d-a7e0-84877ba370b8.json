@@ -1,0 +1,10 @@
+{
+    "trace_id": "b0e696bb-113c-454d-a7e0-84877ba370b8",
+    "user_question": "sales by category",
+    "retrieved_context": null,
+    "llm_prompt": null,
+    "generated_sql": null,
+    "guardrail": null,
+    "db_result": null,
+    "final_response": null
+}

@@ -1,0 +1,10 @@
+{
+    "trace_id": "1a291fba-65b4-49b7-b42c-13ca47614e78",
+    "user_question": "who won in fifa wc 2022",
+    "retrieved_context": null,
+    "llm_prompt": null,
+    "generated_sql": null,
+    "guardrail": null,
+    "db_result": null,
+    "final_response": null
+}

@@ -1,0 +1,201 @@
+{
+    "trace_id": "79d3fc5a-3ecf-4c53-a500-52a55ae09b97",
+    "user_question": "show countries with the highest sales",
+    "retrieved_context": {
+        "tables": []
+    },
+    "llm_prompt": {
+        "schema_context": "",
+        "relationship_context": "\n\norders.customer_id -> customers.customer_id\norders.employee_id -> employees.employee_id\norder_details.order_id -> orders.order_id\norder_details.product_id -> products.product_id\nproducts.category_id -> categories.category_id\nproducts.supplier_id -> suppliers.supplier_id\nemployee_territories.employee_id -> employees.employee_id\nemployee_territories.territory_id -> territories.territory_id\nterritories.region_id -> region.region_id\n",
+        "lov_context": "",
+        "user_question": "show countries with the highest sales"
+    },
+    "generated_sql": "SELECT c.country, ROUND(SUM(od.unit_price * od.quantity),2) AS sales\nFROM customers c\nJOIN orders o ON c.customer_id = o.customer_id\nJOIN order_details od ON o.order_id = od.order_id\nGROUP BY c.country\nORDER BY sales DESC\nLIMIT 100",
+    "guardrail": {
+        "status": "passed"
+    },
+    "db_result": {
+        "columns": [
+            "country",
+            "sales"
+        ],
+        "rows": [
+            [
+                "USA",
+                "263566.98"
+            ],
+            [
+                "Germany",
+                "244640.63"
+            ],
+            [
+                "Austria",
+                "139496.63"
+            ],
+            [
+                "Brazil",
+                "114968.48"
+            ],
+            [
+                "France",
+                "85498.76"
+            ],
+            [
+                "Venezuela",
+                "60814.89"
+            ],
+            [
+                "UK",
+                "60616.51"
+            ],
+            [
+                "Sweden",
+                "59523.70"
+            ],
+            [
+                "Ireland",
+                "57317.39"
+            ],
+            [
+                "Canada",
+                "55334.10"
+            ],
+            [
+                "Belgium",
+                "35134.98"
+            ],
+            [
+                "Denmark",
+                "34782.25"
+            ],
+            [
+                "Switzerland",
+                "32919.50"
+            ],
+            [
+                "Mexico",
+                "24073.45"
+            ],
+            [
+                "Finland",
+                "19778.45"
+            ],
+            [
+                "Spain",
+                "19431.89"
+            ],
+            [
+                "Italy",
+                "16705.15"
+            ],
+            [
+                "Portugal",
+                "12468.65"
+            ],
+            [
+                "Argentina",
+                "8119.10"
+            ],
+            [
+                "Norway",
+                "5735.15"
+            ],
+            [
+                "Poland",
+                "3531.95"
+            ]
+        ]
+    },
+    "final_response": {
+        "columns": [
+            "country",
+            "sales"
+        ],
+        "rows": [
+            [
+                "USA",
+                "263566.98"
+            ],
+            [
+                "Germany",
+                "244640.63"
+            ],
+            [
+                "Austria",
+                "139496.63"
+            ],
+            [
+                "Brazil",
+                "114968.48"
+            ],
+            [
+                "France",
+                "85498.76"
+            ],
+            [
+                "Venezuela",
+                "60814.89"
+            ],
+            [
+                "UK",
+                "60616.51"
+            ],
+            [
+                "Sweden",
+                "59523.70"
+            ],
+            [
+                "Ireland",
+                "57317.39"
+            ],
+            [
+                "Canada",
+                "55334.10"
+            ],
+            [
+                "Belgium",
+                "35134.98"
+            ],
+            [
+                "Denmark",
+                "34782.25"
+            ],
+            [
+                "Switzerland",
+                "32919.50"
+            ],
+            [
+                "Mexico",
+                "24073.45"
+            ],
+            [
+                "Finland",
+                "19778.45"
+            ],
+            [
+                "Spain",
+                "19431.89"
+            ],
+            [
+                "Italy",
+                "16705.15"
+            ],
+            [
+                "Portugal",
+                "12468.65"
+            ],
+            [
+                "Argentina",
+                "8119.10"
+            ],
+            [
+                "Norway",
+                "5735.15"
+            ],
+            [
+                "Poland",
+                "3531.95"
+            ]
+        ]
+    }
+}
